@@ -1,5 +1,7 @@
-class UI {
-  static displayBook() {
+import { BStorage } from "./BStorage.js";
+
+export class UI {
+  static displayBook = () => {
     const monthList = [
       "January",
       "February",
@@ -31,12 +33,9 @@ class UI {
     bookList.forEach((book, index) => {
       UI.addBookToScreen(book, index);
     });
+  };
 
-    // bookList.forEach((book, index) => UI.addBookToScreen(book, index));
-    //
-  }
-
-  static addBookToScreen(book, index) {
+  static addBookToScreen = (book, index) => {
     document.querySelector(".book h2").style.display = "block";
     const table = document.getElementsByClassName("book-list")[0];
     let row = document.createElement("tr");
@@ -48,10 +47,10 @@ class UI {
     `;
     row.innerHTML = td;
     table.appendChild(row);
-  }
+  };
 
-  static getBook() {
+  static getBook = () => {
     let b = document.getElementsByClassName("add-book-list")[0];
     return b;
-  }
+  };
 }
