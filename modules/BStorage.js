@@ -12,7 +12,6 @@ export class BStorage {
   static addBook = (book) => {
     let bookList = BStorage.getBook();
     bookList.push(book);
-    console.log(bookList);
     localStorage.setItem("ourbook", JSON.stringify(bookList));
   };
 
