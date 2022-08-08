@@ -1,15 +1,13 @@
-import { Book } from './modules/Book.js';
-import { BStorage } from './modules/BStorage.js';
-import { UI } from './modules/UI.js';
-
-
+import { Book } from "./modules/Book.js";
+import { BStorage } from "./modules/BStorage.js";
+import { UI } from "./modules/UI.js";
 
 document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault();
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
 
-  let book = new Book(title, author);
+  const book = new Book(title, author);
 
   UI.addBookToScreen(book, BStorage.getBook().length);
   BStorage.addBook(book);
