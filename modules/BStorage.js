@@ -1,5 +1,5 @@
 export class BStorage {
-  static getBook() {
+  static getBook = () => {
     let book = [];
     if (localStorage.getItem("ourbook") !== null) {
       book = JSON.parse(localStorage.getItem("ourbook"));
@@ -7,16 +7,16 @@ export class BStorage {
       book = [];
     }
     return book;
-  }
+  };
 
-  static addBook(book) {
+  static addBook = (book) => {
     let bookList = BStorage.getBook();
     bookList.push(book);
     console.log(bookList);
     localStorage.setItem("ourbook", JSON.stringify(bookList));
-  }
+  };
 
-  static removeBook(e) {
+  static removeBook = (e) => {
     if (e.target.classList.contains("btn-remove")) {
       let list = BStorage.getBook();
       const parent = e.target.parentElement.parentElement;
@@ -26,5 +26,5 @@ export class BStorage {
       list = result;
       localStorage.setItem("ourbook", JSON.stringify(result));
     }
-  }
+  };
 }
