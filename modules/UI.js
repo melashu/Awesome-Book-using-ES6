@@ -1,35 +1,12 @@
 import { BStorage } from "./BStorage.js";
+import { DateTime } from "./luxon.js";
 
 export class UI {
   static displayBook = () => {
-    const monthList = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    var today = new Date();
+    const now = DateTime.now();
+    document.querySelector("#date").innerHTML = now.toISO();
 
-    var date =
-      monthList[today.getMonth()] +
-      "-" +
-      today.getDate() +
-      "-" +
-      today.getFullYear();
-    var time =
-      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date + " " + time;
-    document.querySelector("#date").innerHTML = dateTime;
-
-    let bookList = BStorage.getBook();
+    const bookList = BStorage.getBook();
     bookList.forEach((book, index) => {
       UI.addBookToScreen(book, index);
     });
@@ -38,8 +15,8 @@ export class UI {
   static addBookToScreen = (book, index) => {
     document.querySelector(".book h2").style.display = "block";
     const table = document.getElementsByClassName("book-list")[0];
-    let row = document.createElement("tr");
-    let td = `
+    const row = document.createElement("tr");
+    const td = `
     <td>${book.title} By ${book.author}</td>
     <td class='btn-td'> <button type="button" id="${index}" class="btn-remove">
     Remove
