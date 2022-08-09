@@ -13,12 +13,12 @@ export default class UI {
     // document.querySelector("#date").innerHTML = today;
 
     const bookList = BStorage.getBook();
-    bookList.forEach((book, index) => {
-      UI.addBookToScreen(book, index);
+    bookList.forEach((book) => {
+      UI.addBookToScreen(book);
     });
   };
 
-  static addBookToScreen = (book, index) => {
+  static addBookToScreen = (book) => {
     document.querySelector('.book h2').style.display = 'block';
     const table = document.getElementsByClassName('book-list')[0];
     const row = document.createElement('tr');
