@@ -1,10 +1,16 @@
-import { BStorage } from "./BStorage.js";
-import { DateTime } from "./luxon.js";
+import BStorage from './BStorage.js';
+import { DateTime } from './Luxon.js';
 
-export class UI {
+export default class UI {
   static displayBook = () => {
-    const now = DateTime.now();
-    document.querySelector("#date").innerHTML = now.toISO();
+    const dateUI = document.querySelector('#date');
+    dateUI.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+
+    setInterval(() => {
+      dateUI.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+    }, 10000);
+
+    // document.querySelector("#date").innerHTML = today;
 
     const bookList = BStorage.getBook();
     bookList.forEach((book, index) => {
@@ -13,9 +19,9 @@ export class UI {
   };
 
   static addBookToScreen = (book, index) => {
-    document.querySelector(".book h2").style.display = "block";
-    const table = document.getElementsByClassName("book-list")[0];
-    const row = document.createElement("tr");
+    document.querySelector('.book h2').style.display = 'block';
+    const table = document.getElementsByClassName('book-list')[0];
+    const row = document.createElement('tr');
     const td = `
     <td>${book.title} By ${book.author}</td>
     <td class='btn-td'> <button type="button" id="${index}" class="btn-remove">
@@ -27,7 +33,7 @@ export class UI {
   };
 
   static getBook = () => {
-    let b = document.getElementsByClassName("add-book-list")[0];
+    const b = document.getElementsByClassName('add-book-list')[0];
     return b;
   };
 }
