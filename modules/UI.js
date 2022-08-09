@@ -24,7 +24,7 @@ export default class UI {
     const row = document.createElement('tr');
     const td = `
     <td>${book.title} By ${book.author}</td>
-    <td class='btn-td'> <button type="button" id="${index}" class="btn-remove">
+    <td class='btn-td'> <button type="button" id="${book.id}" class="btn-remove">
     Remove
   </button></td>   
     `;
