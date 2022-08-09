@@ -57,6 +57,8 @@ Give a ⭐️ if you like this project!
 - My reviewer
 
 ## Screenshot 
+![image](https://user-images.githubusercontent.com/30173722/183599703-2cf45848-f81e-4aa9-8dae-93df080e2013.png)
+![image](https://user-images.githubusercontent.com/30173722/183599823-75bfd1dc-44a6-4b8b-b6e4-0724c3a8890a.png)
 
 
 
