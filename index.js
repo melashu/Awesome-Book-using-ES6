@@ -4,10 +4,11 @@ import UI from './modules/UI.js';
 
 document.querySelector('form').addEventListener('submit', (event) => {
   event.preventDefault();
+  let id = Math.floor(Math.random() * 1000);
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
 
-  const book = new Book(title, author);
+  const book = new Book(title, author,id);
 
   UI.addBookToScreen(book, BStorage.getBook().length);
   BStorage.addBook(book);
